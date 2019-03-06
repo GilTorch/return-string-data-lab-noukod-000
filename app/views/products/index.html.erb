@@ -9,10 +9,11 @@ $(function () {
   $(".js-info").on('click', function() {
     // get the id from the data attribute
     let id = $(this).data("id");
-    $.get("/products/" + id + "/description", function(data) {
-      $("#description-"+ id).text(data)
-      $.get("/products/"+ id + "/inventory",function(data){
+    $.get("/products/" + id + "/description", function(descriptionData) {
+      $.get("/products/"+ id + "/inventory",function(inventoryData){
         let inventory=data==="true" ? "Available" : "Sold Out"
+        let description="<p>"+descriptionData+"</p>"+"<p>"+inventoryData+"</p>"
+          $("#description-"+ id).text(data)
         $("#inventory-"+id).text(inventory)
       })
     });
