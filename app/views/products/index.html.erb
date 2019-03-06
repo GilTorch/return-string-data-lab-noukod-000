@@ -2,7 +2,7 @@
   <h1><%= product.id %>:<%= product.name %></h1>
   <div id="inventory-<%= product.id %>"></div>
   <div id="description-<%= product.id %>"><%= truncate product.description %></div>
-  <button class="js-info" data-id="<%= product.id %>">More Info</button>
+  <button id="More Info" class="js-info" data-id="<%= product.id %>">More Info</button>
 <% end %>
 <script type="text/javascript" charset="utf-8">
 $(function () {
