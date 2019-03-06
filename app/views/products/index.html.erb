@@ -10,10 +10,11 @@ $(function () {
     // get the id from the data attribute
     let id = $(this).data("id");
     $.get("/products/" + id + "/description", function(descriptionData) {
+      let description="<p>"+inventory+"</p>"+"<p>"+descriptionData+"</p>"
+        $("#description-"+ id).html(description)
       $.get("/products/"+ id + "/inventory",function(inventoryData){
         let inventory=inventoryData==="true" ? "Available" : "Sold Out"
-        let description="<p>"+inventory+"</p>"+"<p>"+descriptionData+"</p>"
-          $("#description-"+ id).html(description)
+        $("#inventory-"+ id).html(inventory)
       })
     });
   });
