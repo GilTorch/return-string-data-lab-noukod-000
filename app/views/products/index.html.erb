@@ -13,7 +13,7 @@ $(function () {
       let description="<p>"+inventory+"</p>"+"<p>"+descriptionData+"</p>"
         $("#description-"+ id).html(description)
       $.get("/products/"+ id + "/inventory",function(inventoryData){
-        let inventory=inventoryData==="true" ? "Available" : "Sold Out"
+        let inventory=inventoryData==="true" ? "<h2>Available</h2>" : "<h2>Sold Out</h2>"
         $("#inventory-"+ id).html(inventory)
       })
     });
