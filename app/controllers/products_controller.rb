@@ -17,9 +17,21 @@ class ProductsController < ApplicationController
   end
 
   def description
+    @product=Product.find_by(id:params[:id])
+    if @product
+      render plain: @product.description
+    else
+      redirect "/products"
+    end
   end
 
   def inventory
+    @product=Product.find_by(id:params[:id])
+    if @product
+      render plain: @product.inventory > 0
+    else
+      redirect "/products"
+    end
   end
 
   def product_params
